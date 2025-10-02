@@ -60,6 +60,7 @@ int binIndex(vector<float> &data, int N, float val, float max, float min) {
     return (val - min) / bandwidth;
 }
 
+// Feedback: Const itteratie over datavalues
 vector<int> histogram(vector<float> &data, int N, float max, float min) {
     vector<int> hist(N, 0);
     for (float val : data) {
@@ -69,6 +70,7 @@ vector<int> histogram(vector<float> &data, int N, float max, float min) {
     return hist;
 }
 
+// Feedback: Max en min worden dubbel berkend :(
 int main(int argc, char *argv[]) {
     int N;
     cout << "Aantal bins:";

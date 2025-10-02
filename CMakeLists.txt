@@ -3,9 +3,11 @@ project(Oefeningen_PDS)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Oefeningen_PDS
-        Oefening-1/readfloats.cpp
-        Oefening-2/timer.h
-        Oefening-2/oef2.cpp
-        Oefening-5/timer.h
-        Oefening-5/oef5.cpp)
+# Add MS-MPI include and library paths
+include_directories("C:/Program Files (x86)/Microsoft SDKs/MPI/Include")
+link_directories("C:/Program Files (x86)/Microsoft SDKs/MPI/Lib/x64")
+
+add_executable(Oefeningen_PDS Oefening-8/oef8.cpp)
+
+# Link against MS-MPI library
+target_link_libraries(Oefeningen_PDS msmpi)
