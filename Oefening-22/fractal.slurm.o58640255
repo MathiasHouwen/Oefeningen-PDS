@@ -1,0 +1,19 @@
+SLURM_JOB_ID: 58640255
+SLURM_JOB_USER: vsc37912
+SLURM_JOB_ACCOUNT: lp_h_pds_iiw
+SLURM_JOB_NAME: fractal.slurm
+SLURM_CLUSTER_NAME: genius
+SLURM_JOB_PARTITION: gpu_p100
+SLURM_NNODES: 1
+SLURM_NODELIST: r22g38
+SLURM_JOB_CPUS_PER_NODE: 1
+SLURM_JOB_GPUS: 0
+Date: Mon Nov  3 17:01:02 CET 2025
+Walltime: 00-00:05:00
+========================================================================
+CUDA time elapsed: 0.190176 milliseconds
+Program finished successfully
+CUDA time elapsed: 3.28915 milliseconds
+Program finished successfully
+CUDA time elapsed: 0.27888 milliseconds
+Program finished successfully

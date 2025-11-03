@@ -1,0 +1,5 @@
+/var/spool/slurmd/job58640255/slurm_script: line 12: /data/leuven/303/vsc30380/slurmhooks: Permission denied
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) cluster/genius/gpu_p100
