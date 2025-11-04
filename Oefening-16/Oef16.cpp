@@ -12,4 +12,16 @@ int main() {
     return 0;
 }
 
-// OUTPUT: Hello World from thread 0 of 1
+// OUTPUT:
+// Hello World from thread 2 of 12
+// Hello World from thread 0 of 12
+// Hello World from thread 5 of 12
+// Hello World from thread 4 of 12
+// Hello World from thread 1 of 12
+// Hello World from thread 6 of 12
+// Hello World from thread 7 of 12
+// Hello World from thread 3 of 12
+// Hello World from thread 10 of 12
+// Hello World from thread 11 of 12
+// Hello World from thread 8 of 12
+// Hello World from thread 9 of 12

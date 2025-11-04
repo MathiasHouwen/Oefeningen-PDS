@@ -11,26 +11,45 @@
 #
 # # Link against MS-MPI library
 # target_link_libraries(Oefeningen_PDS msmpi)
+#
+# cmake_minimum_required(VERSION 3.21)
+# project(Oefeningen_PDS)
+#
+# set(CMAKE_CXX_STANDARD 23)
+#
+# # Find MS-MPI package (MSVC compatible)
+# find_package(MPI REQUIRED)
+#
+# # Add your executable
+# add_executable(Oefeningen_PDS Oefening-12/Oef12.cpp
+#         Oefening-13/Oef13.cpp
+#         Oefening-13/Oef13.cpp
+#         Oefening-14/Oef14.cpp
+#         Oefening-16/Oef16.cpp
+#         Oefening-17/Oef17.cpp
+#         Oefening-18/Oef18.cpp
+#         Oefening-19/Oef19.cpp
+#         Oefening-20/Oef20.cpp
+# )
+#
+# # Link against MPI automatically
+# target_link_libraries(Oefeningen_PDS PRIVATE MPI::MPI_CXX)
 
-cmake_minimum_required(VERSION 3.21)
-project(Oefeningen_PDS)
+cmake_minimum_required(VERSION 3.10)
+project(Oefeningen_PDS CXX)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 11)
 
-# Find MS-MPI package (MSVC compatible)
-find_package(MPI REQUIRED)
+# Zoek OpenMP
+find_package(OpenMP REQUIRED)
 
-# Add your executable
-add_executable(Oefeningen_PDS Oefening-12/Oef12.cpp
-        Oefening-13/Oef13.cpp
-        Oefening-13/Oef13.cpp
-        Oefening-14/Oef14.cpp
-        Oefening-16/Oef16.cpp
-        Oefening-17/Oef17.cpp
-        Oefening-18/Oef18.cpp
-        Oefening-19/Oef19.cpp
-        Oefening-20/Oef20.cpp
-)
+# Maak de executable
+add_executable(Oefeningen_PDS Oefening-18/Oef18.cpp)
 
-# Link against MPI automatically
-target_link_libraries(Oefeningen_PDS PRIVATE MPI::MPI_CXX)
+# Link OpenMP met de target
+if(OpenMP_CXX_FOUND)
+    target_link_libraries(Oefeningen_PDS PUBLIC OpenMP::OpenMP_CXX)
+    message(STATUS "✅ OpenMP gevonden en ingeschakeld")
+else()
+    message(WARNING "⚠️ OpenMP niet gevonden")
+endif()

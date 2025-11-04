@@ -44,16 +44,31 @@ int main(int argc, char *argv[])
 }
 
 /* OUTPUT
- * 1   multiplier=1 tijd=0.310429 sec
- * 2   multiplier=2 tijd=0.278223 sec
- * 4   multiplier=4 tijd=0.280607 sec
- * 8   multiplier=8 tijd=0.290469 sec
- * 16  multiplier=16 tijd=0.283338 sec
- * 32  multiplier=32 tijd=0.279948 sec
- * 64  multiplier=64 tijd=0.281985 sec
- * 128 multiplier=128 tijd=0.280005 sec
- * 256 multiplier=256 tijd=0.282316 sec
+ * Running multiplier=1 ...
+ *   → average time = 6.056819 sec
+ * Running multiplier=2 ...
+ *   → average time = 7.078272 sec
+ * Running multiplier=4 ...
+ *   → average time = 8.916764 sec
+ * Running multiplier=8 ...
+ *   → average time = 7.876505 sec
+ * Running multiplier=16 ...
+ *   → average time = 6.667308 sec
+ * Running multiplier=32 ...
+ *   → average time = 2.505875 sec
+ * Running multiplier=64 ...
+ *   → average time = 0.489982 sec
+ * Running multiplier=128 ...
+ *   → average time = 0.489659 sec
+ * Running multiplier=256 ...
+ *   → average time = 0.480043 sec
  *
- * Wanneer meerdere threads schrijven naar geheugenlocaties die binnen dezelfde cache line vallen,
- * ontstaat false sharing, wat de prestaties sterk verlaagt.
+ * Wat opvalt is het effect van false sharing:
+ * wanneer meerdere threads schrijven naar dezelfde cacheline,
+ * ontstaat veel synchronisatie tussen caches, wat de prestaties sterk verlaagt.
+ * Bij kleine multipliers (1–8) liggen de threads dicht bij elkaar in het geheugen,
+ * waardoor de uitvoeringstijd hoog is. Bij grotere multipliers (32–256)
+ * schrijft elke thread in een aparte cacheline, verdwijnt false sharing,
+ * en daalt de uitvoeringstijd sterk.
+ * Dit toont aan dat de fysieke plaatsing van data in het geheugen cruciaal is voor prestaties bij multi-threading.
  */

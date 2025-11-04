@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # --- Configuration ---
-exe = "./Oef18"  # path to your compiled C++ executable
+exe = "./Oefeningen_PDS"  # path to your compiled C++ executable
 multipliers = [1, 2, 4, 8, 16, 32, 64, 128, 256]
 num_runs = 10  # how many times to repeat each multiplier for averaging
 
